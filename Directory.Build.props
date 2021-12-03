@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>DotNet.Interactive.Extensions.ILKernel</AssemblyName>
+    <RootNamespace>$(AssemblyName)</RootNamespace>
+    <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
+    <LangVersion>preview</LangVersion>
+    <TargetFramework>net6.0</TargetFramework>
+    
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+
+    <OutputPath>$([System.IO.Path]::GetFullPath('$(RepositoryRoot)\artifacts\bin\$(Configuration)\$(MSBuildProjectName)'))\</OutputPath>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Authors>Vlad Zarytovskii</Authors>
+    <Copyright>Vlad Zarytovskii (c) $([System.DateTime]::UtcNow.ToString(yyyy))</Copyright>
+    <Description>ILKernel is a CIL kernel for the .NET Interactive.</Description>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/vzarytovskii/interactive-ilkernel</RepositoryUrl>
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <VersionPrefix>0.1</VersionPrefix>
+    <VersionSuffix>pre</VersionSuffix>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <Deterministic>true</Deterministic>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <PackageDescription>$(Description)</PackageDescription>
+        <PackageTags>dotnet-interactive</PackageTags>
+        <IncludeBuildOutput>true</IncludeBuildOutput>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.DotNet.Interactive" />
+        <PackageReference Include="Mobius.ILasm" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" />
+        <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" />
+        <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" />
+    </ItemGroup>
+</Project>
