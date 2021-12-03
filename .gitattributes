@@ -1,0 +1,8 @@
+* text=auto encoding=UTF-8
+.editorconfig text eol=lf
+.gitignore text eol=lf
+*.md texteol=lf
+*.cs diff=csharp text
+*.js text eol=lf
+*.json text eol=lf
+*.ts text eol=lf

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <Deterministic>true</Deterministic>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <PackageDescription>IL kernel extension for dotnet-interactive</PackageDescription>
+        <PackageTags>dotnet-interactive</PackageTags>
+        <IncludeBuildOutput>true</IncludeBuildOutput>
+        <!-- <NoWarn>$(NoWarn);NU5100;VSTHRD002</NoWarn> -->
+        <!-- dll outside of lib/ folder -->
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.DotNet.Interactive" />
+        <PackageReference Include="Mobius.ILasm" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" />
+        <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" />
+        <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" />
+    </ItemGroup>
+</Project>
