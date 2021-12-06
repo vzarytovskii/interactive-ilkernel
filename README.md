@@ -12,10 +12,8 @@ First, new kernel should be loaded into the interactive session:
 // Optional, uncomment the following line, if you need to include additional paths to reference libraries from.
 // #i "C:\Users\user\Downloads"
 #r "nuget:DotNet.Interactive.Extensions.ILKernel,0.1.0-pre"
-using Microsoft.DotNet.Interactive;
 using DotNet.Interactive.Extensions.ILKernel;
-var kernel = new ILKernel();
-((CompositeKernel)Kernel.Root).Add(kernel);
+ILKernel().Activate();
 ```
 
 You should now be able to run IL, for example:

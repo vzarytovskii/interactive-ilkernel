@@ -1,5 +1,4 @@
 ﻿using System.Runtime.Loader;
-using System.Text.RegularExpressions;
 using Microsoft.DotNet.Interactive;
 using Microsoft.DotNet.Interactive.Commands;
 using Mobius.ILasm.Core;
@@ -10,6 +9,9 @@ namespace DotNet.Interactive.Extensions.ILKernel;
 public sealed class ILKernel : Kernel, IKernelCommandHandler<SubmitCode>
 {
     private static readonly ILogger _logger = new DummyILLogger();
+
+    public static void Activate() => ((CompositeKernel)Root).Add(new ILKernel());
+
     public ILKernel() : base("il")
     {
     }
@@ -43,7 +45,8 @@ public sealed class ILKernel : Kernel, IKernelCommandHandler<SubmitCode>
 
             var result = entryPoint?.Invoke(default, @params);
 
-            context.DisplayStandardOut(result?.ToString());
+            if (result is not null)
+                context.DisplayStandardOut(result?.ToString());
         }
         else
         {
