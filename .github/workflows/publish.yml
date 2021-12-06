@@ -22,19 +22,19 @@ jobs:
     - name: Pack
       run: dotnet pack --no-build -c Release
     - name: Get Name of Artifact
-        run: |
-          ARTIFACT_PATHNAME=$(ls artifacts/bin/Release/DotNet.Interactive.Extensions.ILKernel/*.nupkg | head -n 1)
-          ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
-          echo ::set-env name=ARTIFACT_NAME::${ARTIFACT_NAME}
-          echo ::set-env name=ARTIFACT_PATHNAME::${ARTIFACT_PATHNAME}
+      run: |
+        ARTIFACT_PATHNAME=$(ls artifacts/bin/Release/DotNet.Interactive.Extensions.ILKernel/*.nupkg | head -n 1)
+        ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
+        echo ::set-env name=ARTIFACT_NAME::${ARTIFACT_NAME}
+        echo ::set-env name=ARTIFACT_PATHNAME::${ARTIFACT_PATHNAME}
     - name: Upload NuGet package as Release Asset
-        if: github.event_name == 'release' && github.event.action == 'created'
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-            upload_url: ${{ github.event.release.upload_url }}
-            asset_path: ${{ env.ARTIFACT_PATHNAME }}
-            asset_name: ${{ env.ARTIFACT_NAME }}
-            asset_content_type: application/zip
+      if: github.event_name == 'release' && github.event.action == 'created'
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ env.ARTIFACT_PATHNAME }}
+          asset_name: ${{ env.ARTIFACT_NAME }}
+          asset_content_type: application/zip
