@@ -33,9 +33,12 @@ You should now be able to run IL, for example:
         .entrypoint
         .maxstack 8
 
-        ldstr "HI"
+        ldstr "Hello, world from IL!"
         call void[System.Console]System.Console::Write(string)
         ret
     }
 }
 ```
+
+## Example of running code above:
+![image](https://user-images.githubusercontent.com/1260985/144867101-20dfb50f-acc8-4e5f-8f9b-dac86cdc085a.png)
