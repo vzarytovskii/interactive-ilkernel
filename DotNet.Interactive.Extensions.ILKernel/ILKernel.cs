@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Reflection;
 using System.Runtime.Loader;
 using Microsoft.DotNet.Interactive;
 using Microsoft.DotNet.Interactive.Commands;
@@ -17,7 +18,7 @@ public sealed class ILKernel : Kernel, IKernelCommandHandler<SubmitCode>
     public Task HandleAsync(SubmitCode command, KernelInvocationContext context)
     {
         var cil = new[] { command.Code };
-        Driver driver = new(logger: _logger, target: Driver.Target.Exe, showParser: false, debuggingInfo: false, showTokens: false);
+        Driver driver = new(logger: _logger, target: Driver.Target.Exe, showParser: false, debuggingInfo: true, showTokens: false);
 
         using MemoryStream assmeblyStream = new();
 
@@ -27,10 +28,22 @@ public sealed class ILKernel : Kernel, IKernelCommandHandler<SubmitCode>
         {
             assmeblyStream.Seek(0, SeekOrigin.Begin);
 
-            var assemblyContext = new AssemblyLoadContext(null);
+            AssemblyLoadContext assemblyContext = new(null);
             var assembly = assemblyContext.LoadFromStream(assmeblyStream);
             var entryPoint = assembly.EntryPoint;
-            var result = entryPoint?.Invoke(null, new object[] { Array.Empty<string>() });
+
+            if (entryPoint is null)
+                throw new ApplicationException("Cannot find a valid entry point.");
+
+            var @params = entryPoint.GetParameters() switch
+            {
+                { Length: 0 } => null,
+                { Length: 1 } pi when pi[0].ParameterType == typeof(string[]) => new object[] { Array.Empty<string>() },
+                _ => throw new ApplicationException("Could not find a suitable entry point, should be either one of the following: void Main() or void Main(string[] args)")
+            };
+            
+           
+            var result = entryPoint?.Invoke(default, @params);
 
             context.DisplayStandardOut(result?.ToString() ?? "");
         }

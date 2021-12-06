@@ -18,7 +18,7 @@ using Microsoft.DotNet.Interactive.Parsing;
 
 namespace DotNet.Interactive.Extensions.ILKernel.Tests;
 [DebuggerStepThrough]
-public static class AssertionExtensions
+internal static class AssertionExtensions
 {
     public static GenericCollectionAssertions<T> AllSatisfy<T>(
         this GenericCollectionAssertions<T> assertions,
@@ -268,7 +268,7 @@ public static class AssertionExtensions
     }
 }
 
-public static class ObservableExtensions
+internal static class ObservableExtensions
 {
     public static SubscribedList<T> ToSubscribedList<T>(this IObservable<T> source)
     {
@@ -276,7 +276,7 @@ public static class ObservableExtensions
     }
 }
 
-public class SubscribedList<T> : IReadOnlyList<T>, IDisposable
+internal class SubscribedList<T> : IReadOnlyList<T>, IDisposable
 {
     private ImmutableArray<T> _list = ImmutableArray<T>.Empty;
     private readonly IDisposable _subscription;
