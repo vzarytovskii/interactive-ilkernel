@@ -27,4 +27,5 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: dotnet-interactive-ilkernel
-        path: artifacts\bin\Release\DotNet.Interactive.Extensions.ILKernel\*.nupkg
+        path: artifacts/bin/Release/DotNet.Interactive.Extensions.ILKernel/*.nupkg
+        if-no-files-found: error
