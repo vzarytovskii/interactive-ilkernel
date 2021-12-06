@@ -9,7 +9,8 @@ An experimental preview verision of [MSIL/CIL](https://en.wikipedia.org/wiki/Com
 First, new kernel should be loaded into the interactive session:
 
 ```csharp
-// #i "C:\Users\vlza\Downloads" // optional, uncomment if you need to include additional paths to reference libraries from.
+// Optional, uncomment the following line, if you need to include additional paths to reference libraries from.
+// #i "C:\Users\user\Downloads"
 #r "nuget:DotNet.Interactive.Extensions.ILKernel,0.1.0-pre"
 using Microsoft.DotNet.Interactive;
 using DotNet.Interactive.Extensions.ILKernel;
@@ -19,7 +20,7 @@ var kernel = new ILKernel();
 
 You should now be able to run IL, for example:
 
-```cil
+```csharp
 #!il
 .assembly ConsoleApp
 {
@@ -34,7 +35,7 @@ You should now be able to run IL, for example:
         .entrypoint
         .maxstack 8
 
-        ldstr ""HI""
+        ldstr "HI"
         call void[System.Console]System.Console::Write(string)
         ret
     }

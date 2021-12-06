@@ -16,11 +16,8 @@ public sealed class ILKernel : Kernel, IKernelCommandHandler<SubmitCode>
 
     public Task HandleAsync(SubmitCode command, KernelInvocationContext context)
     {
-        // TODO: Is there a proper way of cleaning up code from the magic commands?
-        var code = Regex.Replace(command.Code, $"#!il(.*)", "");
-
-        var cil = new[] { code };
-        Driver driver = new(logger: _logger, target: Driver.Target.Exe, showParser: false, debuggingInfo: true, showTokens: false);
+        var cil = new[] { command.Code };
+        Driver driver = new(logger: _logger, target: Driver.Target.Exe, showParser: false, debuggingInfo: false, showTokens: false);
 
         using MemoryStream assmeblyStream = new();
 
@@ -46,7 +43,7 @@ public sealed class ILKernel : Kernel, IKernelCommandHandler<SubmitCode>
 
             var result = entryPoint?.Invoke(default, @params);
 
-            context.DisplayStandardOut(result?.ToString() ?? "<no output>");
+            context.DisplayStandardOut(result?.ToString());
         }
         else
         {
