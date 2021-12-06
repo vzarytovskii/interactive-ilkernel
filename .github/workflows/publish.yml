@@ -1,9 +1,8 @@
 name: Publish
 
 on: 
-  push:
-    tags:
-      - '*'
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -23,8 +22,8 @@ jobs:
     - name: Pack
       run: dotnet pack --no-build -c Release
     - name: Upload NuGet package
-      if: github.ref == 'refs/heads/main'
       uses: actions/upload-artifact@main
+      if: github.event_name == 'release' && github.event.action == 'created'
       with:
         name: dotnet-interactive-ilkernel
         path: artifacts/bin/Release/DotNet.Interactive.Extensions.ILKernel/*.nupkg
