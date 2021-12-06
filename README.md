@@ -13,7 +13,7 @@ First, new kernel should be loaded into the interactive session:
 // #i "C:\Users\user\Downloads"
 #r "nuget:DotNet.Interactive.Extensions.ILKernel,0.1.0-pre"
 using DotNet.Interactive.Extensions.ILKernel;
-ILKernel().Activate();
+ILKernel.Activate();
 ```
 
 You should now be able to run IL, for example:
