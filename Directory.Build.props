@@ -30,8 +30,4 @@
     <VersionPrefix>0.1</VersionPrefix>
     <VersionSuffix>pre</VersionSuffix>
   </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugType>portable</DebugType>
-  </PropertyGroup>
 </Project>

@@ -3,7 +3,6 @@ using System.Diagnostics;
 using Microsoft.DotNet.Interactive.Commands;
 using Microsoft.DotNet.Interactive.Events;
 using Microsoft.DotNet.Interactive.Formatting.TabularData;
-using Microsoft.DotNet.Interactive.Server;
 using Microsoft.DotNet.Interactive;
 using System.Collections;
 using FluentAssertions.Collections;
@@ -11,6 +10,7 @@ using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 using FluentAssertions.Equivalency;
 using FluentAssertions;
+using Microsoft.DotNet.Interactive.Connection;
 using Microsoft.DotNet.Interactive.Parsing;
 
 

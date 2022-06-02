@@ -1,12 +1,17 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MicrosoftCodeAnalysisAnalyzersVersion>3.3.3</MicrosoftCodeAnalysisAnalyzersVersion>
-    <MicrosoftDotnetInteractiveVersion>1.0.0-beta.21602.1</MicrosoftDotnetInteractiveVersion>
+    <MicrosoftDotnetInteractiveVersion>1.0.0-beta.22256.1</MicrosoftDotnetInteractiveVersion>
+    <MicrosoftCodeAnalysisVersion>4.1.0</MicrosoftCodeAnalysisVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.DotNet.Interactive" Version="$(MicrosoftDotnetInteractiveVersion)" />
     <PackageVersion Include="Microsoft.DotNet.Interactive.CSharp" Version="$(MicrosoftDotnetInteractiveVersion)" />
+    <PackageVersion Include="Microsoft.DotNet.Interactive.PackageManagement" Version="$(MicrosoftDotnetInteractiveVersion)" />
     <PackageVersion Include="Mobius.ILasm" Version="0.1.0" />
+
+    <PackageVersion Include="Microsoft.CodeAnalysis.Common" Version="$(MicrosoftCodeAnalysisVersion)" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Scripting" Version="$(MicrosoftCodeAnalysisVersion)" />
   </ItemGroup>  
   <ItemGroup>
     <PackageVersion Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0" />
@@ -15,10 +20,10 @@
     <PackageVersion Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="$(MicrosoftCodeAnalysisAnalyzersVersion)" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
-    <PackageVersion Include="xunit" Version="2.4.1" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="2.4.3" />
-    <PackageVersion Include="FluentAssertions" Version="6.2.0" />
-    <PackageVersion Include="coverlet.collector" Version="3.1.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.3.0-preview-20220426-02" />
+    <PackageVersion Include="xunit" Version="2.4.2-pre.12" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.4.5" />
+    <PackageVersion Include="FluentAssertions" Version="6.7.0" />
+    <PackageVersion Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 </Project>
