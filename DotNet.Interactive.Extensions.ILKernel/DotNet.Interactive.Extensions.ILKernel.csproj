@@ -4,6 +4,7 @@
         <Deterministic>true</Deterministic>
         <PlatformTarget>AnyCPU</PlatformTarget>
         <GenerateDocumentationFile>False</GenerateDocumentationFile>
+        <NoWarn>NU5019;NU5100</NoWarn>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -15,7 +16,10 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.DotNet.Interactive" />
+        <PackageReference Include="Microsoft.DotNet.Interactive.PackageManagement" />
         <PackageReference Include="Mobius.ILasm" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Scripting" />
+
     </ItemGroup>
 
     <ItemGroup>
@@ -23,4 +27,10 @@
         <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" />
         <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" />
     </ItemGroup>
+
+    <ItemGroup>
+        <None Include="$(OutputPath)/$(AssemblyName).dll" Pack="true" PackagePath="interactive-extensions/dotnet" />
+    </ItemGroup>
+
+
 </Project>
