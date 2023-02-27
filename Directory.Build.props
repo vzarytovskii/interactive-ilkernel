@@ -6,11 +6,13 @@
     <RootNamespace>$(AssemblyName)</RootNamespace>
     <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
     <LangVersion>preview</LangVersion>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    
+    <Deterministic>true</Deterministic>
 
     <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>

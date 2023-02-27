@@ -9,11 +9,9 @@ An experimental preview verision of [MSIL/CIL](https://en.wikipedia.org/wiki/Com
 First, new kernel should be loaded into the interactive session:
 
 ```csharp
-// Optional, uncomment the following line, if you need to include additional paths to reference libraries from.
+// Optional, uncomment the following line, if you need to include additional paths to reference libraries from, for example, if you're building it locally.
 // #i "C:\Users\user\Downloads"
 #r "nuget:DotNet.Interactive.Extensions.ILKernel,0.1.0-pre"
-using DotNet.Interactive.Extensions.ILKernel;
-ILKernel.Activate();
 ```
 
 You should now be able to run IL, for example:

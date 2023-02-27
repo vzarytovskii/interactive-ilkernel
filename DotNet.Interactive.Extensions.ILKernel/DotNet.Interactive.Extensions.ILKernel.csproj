@@ -19,7 +19,6 @@
         <PackageReference Include="Microsoft.DotNet.Interactive.PackageManagement" />
         <PackageReference Include="Mobius.ILasm" />
         <PackageReference Include="Microsoft.CodeAnalysis.Scripting" />
-
     </ItemGroup>
 
     <ItemGroup>
@@ -27,6 +26,10 @@
         <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" />
         <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" />
     </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="DotNet.ReproducibleBuilds" />
+    </ItemGroup>    
 
     <ItemGroup>
         <None Include="$(OutputPath)/$(AssemblyName).dll" Pack="true" PackagePath="interactive-extensions/dotnet" />

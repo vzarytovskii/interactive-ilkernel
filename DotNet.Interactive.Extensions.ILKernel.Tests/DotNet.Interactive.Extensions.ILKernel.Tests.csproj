@@ -2,6 +2,7 @@
     <PropertyGroup>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
+        <IsPublishable>false</IsPublishable>
         <AssemblyName Condition=" '$(AssemblyName)' != '' ">$(AssemblyName).Tests</AssemblyName>
         <AssemblyName Condition=" '$(AssemblyName)' == '' ">DotNet.Interactive.Extensions.ILKernel.Tests</AssemblyName>
         <RootNamespace>$(AssemblyName)</RootNamespace>
